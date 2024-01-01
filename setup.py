@@ -40,7 +40,7 @@ setuptools.setup(
     python_requires=">=3.5",
     install_requires=[
         "torch>=1.7.0,!=1.8.0",  # excludes torch v1.8.0
-        "onnx",
+        "onnx>=1.15.0",
         "onnxruntime>=1.15.0",
         "transformers>4.6.1",
         "progress>=1.5",
