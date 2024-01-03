@@ -34,9 +34,9 @@ def create_t5_encoder_decoder(pretrained_version="t5-base"):
     """
 
     if 'mt5' in pretrained_version:
-        model = MT5ForConditionalGeneration.from_pretrained(pretrained_version, use_auth_token=get_auth_token())
+        model = MT5ForConditionalGeneration.from_pretrained(pretrained_version, token=get_auth_token())
     else:
-        model = T5ForConditionalGeneration.from_pretrained(pretrained_version, use_auth_token=get_auth_token())
+        model = T5ForConditionalGeneration.from_pretrained(pretrained_version, token=get_auth_token())
 
     return turn_model_into_encoder_decoder(model)
 
@@ -93,7 +93,7 @@ def generate_onnx_representation(
         pretrained_version, output_path, quantized=False
     )
 
-    model_config = AutoConfig.from_pretrained(pretrained_version, use_auth_token=get_auth_token())
+    model_config = AutoConfig.from_pretrained(pretrained_version, token=get_auth_token())
 
     # Though these are dummy inputs, ORT optimizations do reference these values,
     # so it is worth using values as close to production as possible

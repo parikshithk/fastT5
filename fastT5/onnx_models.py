@@ -113,7 +113,7 @@ class OnnxT5(T5ForConditionalGeneration):
 
     def __init__(self, model_or_model_path, onnx_model_sessions):
         config = AutoConfig.from_pretrained(
-            model_or_model_path, use_auth_token=get_auth_token()
+            model_or_model_path, token=get_auth_token()
         )
         super().__init__(config)
 
